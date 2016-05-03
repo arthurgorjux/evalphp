@@ -31,16 +31,17 @@ class Repository {
         }
         $sql .= ';';
 
-        $link = mysql_connect("localhost", "root", "ks164gb")
-            or die("Impossible de se connecter : " . mysql_error());
-        mysql_select_db('astriumgeo.trunk', $link);
-        $result = mysql_query(sprintf($sql));
-        if ($result) {
-            while ($row = mysql_fetch_object($result)) {
-                $entries[] = $this->createEntryFromDbValues($row);
-            }
-        }
-        mysql_close($link);
+        /**
+         * @TODO
+         *
+         * 1/ Gérer la connection MySQL au serveur (informations de connexion ci-dessous)
+         * host : localhost
+         * database : evalphp_site
+         * user : evalphp
+         * password : yxzITfuKlSv9oFjLTJch
+         *
+         * 2/ Boucler sur les résultats obtenus en remplissant le tableau "$entries" grâce à la méthode "createEntryFromDbValues()" ci-après
+         */
 
         return $entries;
     }

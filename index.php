@@ -31,7 +31,13 @@
     $app->get('/v1/', "api.controller:homePage");
 
     // GET request
-    $app->get('/v1/log/get/{type}', "api.controller:get");
+    /**
+     * @TODO
+     *
+     * Créer une route pour cibler le bon Controller en passant le type "Download" pour effectuer la recherche
+     *
+     * La route doit-être accessible via l'URL suivante : http://mon-site.com/v1/log/get/MON_TYPE_POUR_LA_RECHERCHE
+     */
 
     $app->error(function (\Exception $e, $code) {
         switch ($code) {

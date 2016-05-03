@@ -25,7 +25,12 @@
                 $this->app->abort(204, "No content for this request");
             }
 
-            $data = Connector::getListing($type);
+            /**
+             * @TODO
+             *
+             * Appeler la methode "getListing" de la classe "Connector" (/module/ApiLog/Connector.php)
+             */
+            
             if (!$data) {
                 $this->app->abort(204, "No content for this request");
             }
