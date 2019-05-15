@@ -35,11 +35,8 @@ class Repository {
          * @TODO
          *
          * 1/ Gérer la connection MySQL au serveur (informations de connexion ci-dessous)
-         * host : localhost
-         * database : evalphp_site
-         * user : evalphp
-         * password : yxzITfuKlSv9oFjLTJch
-         *
+         * En PHP 7 (et +) il faut utiliser les fonctions MYSQLI
+         * En PHP 5 (<= 5.6) il faut utiliser les fonctions MYSQL
          * 2/ Boucler sur les résultats obtenus en remplissant le tableau "$entries" grâce à la méthode "createEntryFromDbValues()" ci-après
          */
 
