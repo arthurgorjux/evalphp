@@ -25,7 +25,6 @@
 
                     $results[] = array(
                         'datetime' => $datetime,
-                        'fullName' => $fullName,
                         'ipAddress' => $entry->getIpAddress(),
                         'country' => $entry->getCountry(),
                         'category' => $entry->getCategory(),
