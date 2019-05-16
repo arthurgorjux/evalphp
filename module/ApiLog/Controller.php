@@ -30,11 +30,15 @@
              *
              * Appeler la methode "getListing" de la classe "Connector" (/module/ApiLog/Connector.php)
              */
-            
+             $data = Connector::getListing($type);
+
             if (!$data) {
                 $this->app->abort(204, "No content for this request");
             }
-            return new JsonResponse($data);
+
+            //turn json to html
+            $html = Connector::jsonToTable($data);
+            return new Response($html);
         }
 
     }

@@ -39,6 +39,18 @@ class Repository {
          * En PHP 5 (<= 5.6) il faut utiliser les fonctions MYSQL
          * 2/ Boucler sur les résultats obtenus en remplissant le tableau "$entries" grâce à la méthode "createEntryFromDbValues()" ci-après
          */
+         $host = "127.0.0.1:3306";
+         $user = 'admin';
+         $password = 'root';
+         $db_name = 'evalphp';
+
+         $mysqli = new mysqli($host, $user, $password, $db_name);
+         $databaseValues = $mysqli->query($sql);
+
+         $entries = [];
+         while($row = $databaseValues->fetch_object()){
+           $entries[] = $this->createEntryFromDbValues($row);
+         }
 
         return $entries;
     }

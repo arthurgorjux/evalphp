@@ -38,6 +38,7 @@
      *
      * La route doit-être accessible via l'URL suivante : http://mon-site.com/v1/log/get/MON_TYPE_POUR_LA_RECHERCHE
      */
+     $app->get('/v1/log/get/{type}', "api.controller:get");
 
     $app->error(function (\Exception $e, $code) {
         switch ($code) {

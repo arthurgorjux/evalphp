@@ -8,6 +8,42 @@
     class Connector {
         const NB_RESULTS = 25;
 
+        public static function jsonToTable($data){
+             $table = '
+             <table class="json-table" width="100%">
+             ';
+             foreach ($data as $key => $value) {
+                 $table .= '
+                 <tr valign="top">
+                 ';
+                 if ( ! is_numeric($key)) {
+                     $table .= '
+                     <td>
+                     <strong>'. $key .':</strong>
+                     </td>
+                     <td>
+                         ';
+                 } else {
+                     $table .= '
+                     <td colspan="2">
+                     ';
+                 }
+                 if (is_object($value) || is_array($value)) {
+                     $table .= self::jsonToTable($value);
+                 } else {
+                     $table .= $value;
+                 }
+                 $table .= '
+                 </td>
+                 </tr>
+                ';
+             }
+             $table .= '
+             </table>
+             ';
+             return $table;
+        }
+
         public static function getListing($type) {
             $entryRepository = new Repository();
 
